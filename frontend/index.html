@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Story Teller - Create Magical Stories</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-magic"></i>
+                </div>
+                <h1>AI Story Teller</h1>
+            </div>
+            <p class="tagline">Create magical stories with AI and bring them to life with narration</p>
+        </header>
+
+        <main class="main-content">
+            <div class="story-form-container">
+                <div class="form-header">
+                    <h2>Create Your Story</h2>
+                    <p>Fill in the details below to generate your magical tale</p>
+                </div>
+                
+                <form id="storyForm" class="story-form">
+                    <div class="input-group">
+                        <label for="character">
+                            <i class="fas fa-user"></i>
+                            Character
+                        </label>
+                        <input type="text" id="character" placeholder="e.g., brave knight, wise wizard, curious cat">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="theme">
+                            <i class="fas fa-palette"></i>
+                            Theme
+                        </label>
+                        <input type="text" id="theme" placeholder="e.g., friendship, adventure, courage">
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="duration">
+                                <i class="fas fa-clock"></i>
+                                Duration
+                            </label>
+                            <select id="duration">
+                                <option value="1">1 minute</option>
+                                <option value="2" selected>2 minutes</option>
+                                <option value="3">3 minutes</option>
+                                <option value="4">4 minutes</option>
+                                <option value="5">5 minutes</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="language">
+                                <i class="fas fa-globe"></i>
+                                Language
+                            </label>
+                            <select id="language">
+                                <option value="en">English</option>
+                                <option value="hi">Hindi</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="generate-btn">
+                        <i class="fas fa-wand-magic-sparkles"></i>
+                        Generate Story
+                    </button>
+                </form>
+            </div>
+
+            <div id="loadingSection" class="loading-section hidden">
+                <div class="loading-content">
+                    <div id="lottieContainer" class="lottie-container"></div>
+                    <h3>AI at Work</h3>
+                    <p>Creating your magical story...</p>
+                    <div class="loading-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="storySection" class="story-section hidden">
+                <div class="story-header">
+                    <div class="story-title">
+                        <h2>Your Story</h2>
+                        <div class="story-meta">
+                            <span class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span id="storyDuration"></span>
+                            </span>
+                            <span class="meta-item">
+                                <i class="fas fa-language"></i>
+                                <span id="storyLanguage"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="story-controls">
+                        <button id="playBtn" class="control-btn primary">
+                            <i class="fas fa-play"></i>
+                            Play
+                        </button>
+                        <button id="pauseBtn" class="control-btn secondary hidden">
+                            <i class="fas fa-pause"></i>
+                            Pause
+                        </button>
+                        <button id="stopBtn" class="control-btn secondary">
+                            <i class="fas fa-stop"></i>
+                            Stop
+                        </button>
+                        <button id="downloadBtn" class="control-btn accent">
+                            <i class="fas fa-download"></i>
+                            Download
+                        </button>
+                    </div>
+                </div>
+
+                <div class="story-content">
+                    <div id="storyText" class="story-text"></div>
+                </div>
+
+                <div class="audio-player">
+                    <audio id="audioPlayer" controls class="hidden"></audio>
+                </div>
+            </div>
+
+            <div id="errorSection" class="error-section hidden">
+                <div class="error-content">
+                    <div class="error-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Oops! Something went wrong</h3>
+                    <p id="errorMessage"></p>
+                    <button id="retryBtn" class="retry-btn">
+                        <i class="fas fa-redo"></i>
+                        Try Again
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2025 AI Story Teller. Made with <i class="fas fa-heart"></i> from storytellers.</p>
+        </footer>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
