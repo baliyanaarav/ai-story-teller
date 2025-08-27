@@ -5,4 +5,4 @@ requests
 gtts
 python-dotenv
 aiofiles
-openai
+openai==0.28.1
